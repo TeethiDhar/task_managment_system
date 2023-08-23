@@ -19,5 +19,9 @@
 
 4> "API Development :"
 
-->After login user can get a unique token in postman, using that token in header seaction user can create , read, update and delete tasks means an authenticated user can only do this activities otherwise server will restrict user as unauthenticated.
+->My end points are: 
+ Get - http://127.0.0.1:8000/api/task
+ POST - http://127.0.0.1:8000/api/task
+ PUT - http://127.0.0.1:8000/api/task
+ DELETE - http://127.0.0.1:8000/api/task
 ->For api I make trait for Responses format and used it into controller.
