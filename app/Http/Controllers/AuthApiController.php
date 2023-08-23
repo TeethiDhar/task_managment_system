@@ -10,30 +10,28 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AuthApiController extends Controller
 {
-
     use ResponsesTraits;
 
-    public $authrepo;
+    protected $authrepo; // Use protected instead of public for better encapsulation
 
     public function __construct(Authrepo $authrepo)
     {
         $this->authrepo = $authrepo;
     }
 
-
     public function login(Request $request)
-    {        
+    {
         try {
             $user = $this->authrepo->login($request->all());
-            $token = JWTAuth::fromUser($user);        
+            $token = JWTAuth::fromUser($user);
             
-             $this->successResponse([
+            return $this->successResponse([
                 'user' => $user,
                 'token' => $token,
-            ], 'User Login Successfully', Response::HTTP_OK);
+            ], 'User Logged In Successfully', Response::HTTP_OK);
 
-            } catch (\Exception $e) {
-                return $this->errorResponse('Invalid credentials', Response::HTTP_INTERNAL_SERVER_ERROR);
-            }
+        } catch (\Exception $e) {
+            return $this->errorResponse('Invalid credentials', Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
     }
 }

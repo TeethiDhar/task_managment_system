@@ -15,9 +15,9 @@ use App\Http\Controllers\AuthApiController;
 |
 */
 
+
+
 Route::post('login',[AuthApiController::class, 'login']); 
 
 
-Route::group(['middleware' => ['auth']], function () {   
-  Route::apiResource('task', TaskApiController::class);
-});
+Route::apiResource('task', TaskApiController::class);

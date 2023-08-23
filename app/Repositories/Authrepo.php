@@ -13,7 +13,7 @@ class Authrepo
     {
         $credentials = [
             'email' => $data['email'],
-            'password' => $data['password']
+            'password' => $data['password'],
         ];
 
         if (Auth::attempt($credentials)) {

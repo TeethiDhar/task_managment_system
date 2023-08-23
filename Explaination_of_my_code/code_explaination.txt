@@ -24,4 +24,5 @@
  POST - http://127.0.0.1:8000/api/task
  PUT - http://127.0.0.1:8000/api/task
  DELETE - http://127.0.0.1:8000/api/task
+ POST - http://127.0.0.1:8000/api/login
 ->For api I make trait for Responses format and used it into controller.
